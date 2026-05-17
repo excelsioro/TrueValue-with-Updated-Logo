@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .carousel-3d-container {
+    perspective: 800px;
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-areas: 'card';
+    place-items: center;
+    font-size: clamp(2rem, 10vw, 5rem);
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: #F26522;
+  }
+
+  .carousel-3d-container .word {
+    grid-area: card;
+    display: flex;
+    flex-wrap: nowrap;
+    transform-style: preserve-3d;
+  }
+
+  .carousel-3d-container .char {
+    display: block;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+
+  .carousel-3d-container .char-wrap {
+    display: inline-block;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  .icon-particle {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .icon-particle svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 4px rgba(242, 101, 34, 0.3));
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
